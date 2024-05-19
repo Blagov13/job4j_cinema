@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+
+    <!--  Зависимости Bootstrap-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link th:href="@{/css/bootstrap.min.css}" rel="stylesheet">
+    <script th:src="@{/js/code.jquery.com_jquery-3.7.0.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+
+    <title>Киносеансы</title>
+</head>
+<style>
+    body {
+        font-family: 'Arial', sans-serif;
+    }
+    .table {
+        border-collapse: collapse;
+        width: 100%;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    .table th, .table td {
+        padding: 12px 15px;
+        border: 1px solid #ddd;
+    }
+    .table th {
+        background-color: #f8f9fa;
+        text-align: left;
+    }
+    .table tbody tr:nth-child(odd) {
+        background-color: #f2f2f2;
+    }
+    .table tbody tr:hover {
+        background-color: #e9ecef;
+    }
+</style>
+<body>
+<div class="container-fluid p-0">
+    <header th:insert="blocks/header :: header"></header>
+    <div class="container">
+        <div class="row">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">Название</th>
+                    <th scope="col">Начало сеанса</th>
+                    <th scope="col">Конец сеанса</th>
+                    <th scope="col">Зал</th>
+                    <th scope="col">Стоимость</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="sessions: ${filmSession}">
+                    <td><a th:text="${sessions.filmName}"
+                           th:href="@{/filmSession/create/{sessionsId}(sessionsId=${sessions.id})}"></a></td>
+                    <td th:text="${sessions.startTime}"/>
+                    <td th:text="${sessions.endTime}"/>
+                    <td th:text="${sessions.hallsName}"/>
+                    <td th:text="${sessions.price}"/>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
