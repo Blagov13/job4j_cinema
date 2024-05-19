@@ -6,13 +6,12 @@ import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.User;
 
-import java.util.Collection;
 import java.util.Optional;
 
 @Repository
 public class Sql2oUserRepository implements UserRepository {
     private final Sql2o sql2o;
-    private static final Logger logger = LoggerFactory.getLogger(Sql2oUserRepository.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(Sql2oUserRepository.class);
 
     public Sql2oUserRepository(Sql2o sql2o) {
         this.sql2o = sql2o;
@@ -33,7 +32,7 @@ public class Sql2oUserRepository implements UserRepository {
             user.setId(generatedId);
             return Optional.of(user);
         } catch (Exception exception) {
-            logger.info(exception.getMessage());
+            LOGGER.info(exception.getMessage());
         }
         return Optional.empty();
     }

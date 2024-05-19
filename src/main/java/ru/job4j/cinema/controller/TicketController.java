@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.job4j.cinema.model.Tickets;
 import ru.job4j.cinema.service.TicketsService;
 
-
 @Controller
 @RequestMapping("/tickets")
 public class TicketController {

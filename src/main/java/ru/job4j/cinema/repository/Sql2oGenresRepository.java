@@ -4,8 +4,6 @@ import org.springframework.stereotype.Repository;
 import org.sql2o.Sql2o;
 import ru.job4j.cinema.model.Genres;
 
-import java.util.Collection;
-
 @Repository
 public class Sql2oGenresRepository implements GenresRepository {
     private final Sql2o sql2o;

@@ -4,7 +4,6 @@ import org.springframework.stereotype.Service;
 import ru.job4j.cinema.model.User;
 import ru.job4j.cinema.repository.UserRepository;
 
-import java.util.Collection;
 import java.util.Optional;
 
 @Service

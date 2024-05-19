@@ -15,6 +15,7 @@ public class SimpleTicketsService implements TicketsService {
     private SimpleTicketsService(TicketsRepository sql2oTicketsRepository) {
         this.ticketsRepository = sql2oTicketsRepository;
     }
+
     @Override
     public Optional<Tickets> save(Tickets tickets) {
         return ticketsRepository.save(tickets);

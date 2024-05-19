@@ -18,7 +18,7 @@ public class Halls {
     private int placeCount;
     private String description;
 
-    public Halls(int id, String name,int placeCount, int rowCount, String description) {
+    public Halls(int id, String name, int placeCount, int rowCount, String description) {
         this.description = description;
         this.id = id;
         this.name = name;

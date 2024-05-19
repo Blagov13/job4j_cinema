@@ -19,7 +19,7 @@ public class SimpleFilmsService implements FilmsService {
 
     private final GenresRepository genresRepository;
 
-    private SimpleFilmsService(FilmsRepository sql2oFilmsRepository, FileRepository sql2oFileRepository, GenresRepository sql2oGenresRepositiry) {
+    public SimpleFilmsService(FilmsRepository sql2oFilmsRepository, FileRepository sql2oFileRepository, GenresRepository sql2oGenresRepositiry) {
         this.filmsRepository = sql2oFilmsRepository;
         this.fileRepository = sql2oFileRepository;
         this.genresRepository = sql2oGenresRepositiry;
@@ -28,8 +28,8 @@ public class SimpleFilmsService implements FilmsService {
     @Override
     public Optional<FilmDto> findById(int id) {
         Optional<FilmDto> filmDto = Optional.empty();
-        for(FilmDto film: findAll()) {
-            if(film.getId() == id) {
+        for (FilmDto film : findAll()) {
+            if (film.getId() == id) {
                 filmDto = Optional.of(film);
                 break;
             }
@@ -40,7 +40,7 @@ public class SimpleFilmsService implements FilmsService {
     @Override
     public Collection<FilmDto> findAll() {
         Collection<FilmDto> filmDtos = new ArrayList<>();
-        for(Films films:filmsRepository.findAll()) {
+        for (Films films : filmsRepository.findAll()) {
             var genres = genresRepository.findById(films.getGenre());
             var files = fileRepository.findById(films.getFileId());
             var filmDto = new FilmDto(
@@ -52,7 +52,7 @@ public class SimpleFilmsService implements FilmsService {
                     films.getDurationInMinutes(),
                     genres.getName(),
                     films.getFileId());
-                    filmDtos.add(filmDto);
+            filmDtos.add(filmDto);
         }
         return filmDtos;
     }
