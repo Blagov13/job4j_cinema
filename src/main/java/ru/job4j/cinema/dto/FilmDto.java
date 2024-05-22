@@ -52,7 +52,6 @@ public class FilmDto {
         return this;
     }
 
-
     public int getId() {
         return id;
     }

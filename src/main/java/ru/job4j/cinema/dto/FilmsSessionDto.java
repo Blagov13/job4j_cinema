@@ -53,7 +53,6 @@ public class FilmsSessionDto {
         return this;
     }
 
-
     public int getRowCount() {
         return rowCount;
     }
