@@ -33,8 +33,24 @@ class FilmsControllerTest {
 
     @Test
     public void whenRequestFilmListPageThenGet() {
-        var film1 = new FilmDto(1, "test", "test", 2000, 1, 12, "genre", 1);
-        var film2 = new FilmDto(2, "test", "test", 2000, 2, 13, "genre1", 2);
+        var film1 = new FilmDto()
+                .id(1)
+                .name("test")
+                .description("test")
+                .year(2000)
+                .minimalAge(1)
+                .durationInMinutes(12)
+                .genre("genre")
+                .fileId(1);
+        var film2 = new FilmDto()
+                .id(2)
+                .name("test")
+                .description("test")
+                .year(2000)
+                .minimalAge(2)
+                .durationInMinutes(13)
+                .genre("genre1")
+                .fileId(2);
         var expectedFilms = List.of(film1, film2);
         when(filmsService.findAll()).thenReturn(expectedFilms);
 
@@ -49,7 +65,15 @@ class FilmsControllerTest {
     @Test
     public void whenRequestFilmPageByIdAndThenGetPage() {
         int id = 5;
-        var candidate = new FilmDto(1, "test", "test", 2000, 1, 12, "genre", 1);
+        var candidate = new FilmDto()
+                .id(1)
+                .name("test")
+                .description("test")
+                .year(2000)
+                .minimalAge(1)
+                .durationInMinutes(12)
+                .genre("genre")
+                .fileId(1);
         var idArgumentCaptor = ArgumentCaptor.forClass(Integer.class);
         when(filmsService.findById(idArgumentCaptor.capture())).thenReturn(Optional.of(candidate));
 

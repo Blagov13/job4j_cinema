@@ -26,8 +26,24 @@ class FilmsSessionControllerTest {
 
     @Test
     public void whenRequestSessionListPageThenGet() {
-        var session1 = new FilmsSessionDto(1, "test", "test", new Timestamp(13), new Timestamp(15), 100, 1, 1);
-        var session2 = new FilmsSessionDto(2, "test1", "test1", new Timestamp(13), new Timestamp(15), 200, 2, 2);
+        var session1 = new FilmsSessionDto()
+                .id(1)
+                .filmName("test")
+                .hallsName("test")
+                .startTime(new Timestamp(13))
+                .endTime(new Timestamp(15))
+                .price(100)
+                .rowCount(1)
+                .placeCount(1);
+        var session2 = new FilmsSessionDto()
+                .id(2)
+                .filmName("test1")
+                .hallsName("test1")
+                .startTime(new Timestamp(13))
+                .endTime(new Timestamp(15))
+                .price(200)
+                .rowCount(2)
+                .placeCount(2);
         var expectedSessions = List.of(session1, session2);
         when(filmSessionsService.findAll()).thenReturn(expectedSessions);
 
