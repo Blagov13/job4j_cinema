@@ -25,15 +25,44 @@ public class Films {
     private int durationInMinutes;
     private int fileId;
 
-    public Films(int id, String name, String description, int durationInMinutes, int fileId, int genre, int minimalAge, int year) {
-        this.description = description;
-        this.durationInMinutes = durationInMinutes;
-        this.fileId = fileId;
-        this.genre = genre;
+    public Films id(int id) {
         this.id = id;
-        this.minimalAge = minimalAge;
+        return this;
+    }
+
+    public Films name(String name) {
         this.name = name;
+        return this;
+    }
+
+    public Films description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public Films year(int year) {
         this.year = year;
+        return this;
+    }
+
+    public Films genre(int genre) {
+        this.genre = genre;
+        return this;
+    }
+
+    public Films minimalAge(int minimalAge) {
+        this.minimalAge = minimalAge;
+        return this;
+    }
+
+    public Films durationInMinutes(int durationInMinutes) {
+        this.durationInMinutes = durationInMinutes;
+        return this;
+    }
+
+    public Films fileId(int fileId) {
+        this.fileId = fileId;
+        return this;
     }
 
     public String getDescription() {

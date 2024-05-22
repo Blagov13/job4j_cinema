@@ -40,18 +40,18 @@ public class SimpleFilmsService implements FilmsService {
     @Override
     public Collection<FilmDto> findAll() {
         Collection<FilmDto> filmDtos = new ArrayList<>();
-        for (Films films : filmsRepository.findAll()) {
-            var genres = genresRepository.findById(films.getGenre());
-            var files = fileRepository.findById(films.getFileId());
-            var filmDto = new FilmDto(
-                    films.getId(),
-                    films.getName(),
-                    films.getDescription(),
-                    films.getYear(),
-                    films.getMinimalAge(),
-                    films.getDurationInMinutes(),
-                    genres.getName(),
-                    films.getFileId());
+        for (Films film : filmsRepository.findAll()) {
+            var genres = genresRepository.findById(film.getGenre());
+            var files = fileRepository.findById(film.getFileId());
+            var filmDto = new FilmDto()
+                    .id(film.getId())
+                    .name(film.getName())
+                    .description(film.getDescription())
+                    .year(film.getYear())
+                    .minimalAge(film.getMinimalAge())
+                    .durationInMinutes(film.getDurationInMinutes())
+                    .genre(genres.getName())
+                    .fileId(film.getFileId());
             filmDtos.add(filmDto);
         }
         return filmDtos;

@@ -42,19 +42,18 @@ public class SimpleFilmSessionsService implements FilmSessionsService {
     @Override
     public Collection<FilmsSessionDto> findAll() {
         Collection<FilmsSessionDto> sessionDtoCollection = new ArrayList<>();
-        for (FilmSession session:filmSessionsRepository.findAll()) {
+        for (FilmSession session : filmSessionsRepository.findAll()) {
             var filmName = filmsRepository.findById(session.getFilmId());
             var hallsName = hallsRepository.findById(session.getHallsId());
-            var sessionDto = new FilmsSessionDto(
-                    session.getId(),
-                    filmName.get().getName(),
-                    hallsName.getName(),
-                    session.getStartTime(),
-                    session.getEndTime(),
-                    session.getPrice(),
-                    hallsName.getRowCount(),
-                    hallsName.getPlaceCount()
-            );
+            var sessionDto = new FilmsSessionDto()
+                    .id(session.getId())
+                    .filmName(filmName.get().getName())
+                    .hallsName(hallsName.getName())
+                    .startTime(session.getStartTime())
+                    .endTime(session.getEndTime())
+                    .price(session.getPrice())
+                    .rowCount(hallsName.getRowCount())
+                    .placeCount(hallsName.getPlaceCount());
             sessionDtoCollection.add(sessionDto);
         }
         return sessionDtoCollection;

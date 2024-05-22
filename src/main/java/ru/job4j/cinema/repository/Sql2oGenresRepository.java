@@ -16,8 +16,7 @@ public class Sql2oGenresRepository implements GenresRepository {
     public Genres findById(int id) {
         try (var connection = sql2o.open()) {
             var query = connection.createQuery("SELECT * FROM genres where id = :id");
-            var genres = query.addParameter("id", id).executeAndFetchFirst(Genres.class);
-            return genres;
+            return query.addParameter("id", id).executeAndFetchFirst(Genres.class);
         }
     }
 }

@@ -13,17 +13,46 @@ public class FilmsSessionDto {
     private int rowCount;
     private int placeCount;
 
-    public FilmsSessionDto(int id, String filmName, String hallsName,
-                     Timestamp startTime, Timestamp endTime, int price, int rowCount, int placeCount) {
+    public FilmsSessionDto id(int id) {
         this.id = id;
-        this.filmName = filmName;
-        this.hallsName = hallsName;
-        this.startTime = startTime;
-        this.endTime = endTime;
-        this.price = price;
-        this.rowCount = rowCount;
-        this.placeCount = placeCount;
+        return this;
     }
+
+    public FilmsSessionDto filmName(String filmName) {
+        this.filmName = filmName;
+        return this;
+    }
+
+    public FilmsSessionDto hallsName(String hallsName) {
+        this.hallsName = hallsName;
+        return this;
+    }
+
+    public FilmsSessionDto startTime(Timestamp startTime) {
+        this.startTime = startTime;
+        return this;
+    }
+
+    public FilmsSessionDto endTime(Timestamp endTime) {
+        this.endTime = endTime;
+        return this;
+    }
+
+    public FilmsSessionDto price(int price) {
+        this.price = price;
+        return this;
+    }
+
+    public FilmsSessionDto rowCount(int rowCount) {
+        this.rowCount = rowCount;
+        return this;
+    }
+
+    public FilmsSessionDto placeCount(int placeCount) {
+        this.placeCount = placeCount;
+        return this;
+    }
+
 
     public int getRowCount() {
         return rowCount;

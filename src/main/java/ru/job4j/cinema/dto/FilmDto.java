@@ -12,17 +12,46 @@ public class FilmDto {
     private String genre;
     private int fileId;
 
-    public FilmDto(int id, String name, String description, int year,
-                   int minimalAge, int durationInMinutes, String genre, int fileId) {
+    public FilmDto id(int id) {
         this.id = id;
-        this.name = name;
-        this.description = description;
-        this.year = year;
-        this.minimalAge = minimalAge;
-        this.durationInMinutes = durationInMinutes;
-        this.genre = genre;
-        this.fileId = fileId;
+        return this;
     }
+
+    public FilmDto name(String name) {
+        this.name = name;
+        return this;
+    }
+
+    public FilmDto description(String description) {
+        this.description = description;
+        return this;
+    }
+
+    public FilmDto year(int year) {
+        this.year = year;
+        return this;
+    }
+
+    public FilmDto minimalAge(int minimalAge) {
+        this.minimalAge = minimalAge;
+        return this;
+    }
+
+    public FilmDto durationInMinutes(int durationInMinutes) {
+        this.durationInMinutes = durationInMinutes;
+        return this;
+    }
+
+    public FilmDto genre(String genre) {
+        this.genre = genre;
+        return this;
+    }
+
+    public FilmDto fileId(int fileId) {
+        this.fileId = fileId;
+        return this;
+    }
+
 
     public int getId() {
         return id;
