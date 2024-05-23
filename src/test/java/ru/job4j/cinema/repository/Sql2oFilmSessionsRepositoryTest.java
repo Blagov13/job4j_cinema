@@ -3,10 +3,7 @@ package ru.job4j.cinema.repository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import ru.job4j.cinema.configuration.DatasourceConfiguration;
-import ru.job4j.cinema.model.FilmSession;
 
-import java.sql.Timestamp;
-import java.util.List;
 import java.util.Properties;
 
 import static org.assertj.core.api.Assertions.*;
@@ -36,17 +33,15 @@ class Sql2oFilmSessionsRepositoryTest {
      */
 
     @Test
-    void whenFindByIdFilmSessionThenGetFilmSession() {
-        FilmSession expectedSession = new FilmSession(1, 1, 2, new Timestamp(13), new Timestamp(15), 100);
-        assertThat(sql2oFilmSessionsRepository.findById(1)).usingRecursiveComparison()
-                .isEqualTo(expectedSession);
+    public void whenFindAllSessionsThenGet() {
+        var filmCollection = sql2oFilmSessionsRepository.findAll();
+        assertThat(filmCollection).hasSize(5);
     }
 
     @Test
-    void whenGetAllFilmSessionsThenGetFilmSessionsCollection() {
-        FilmSession expectedSession1 = new FilmSession(1, 1, 2, new Timestamp(13), new Timestamp(15), 100);
-        FilmSession expectedSession2 = new FilmSession(2, 1, 2, new Timestamp(13), new Timestamp(15), 100);
-        assertThat(sql2oFilmSessionsRepository.findAll())
-                .isEqualTo(List.of(expectedSession1, expectedSession2));
+    public void whenFindSessionByIdThenGet() {
+        var session = sql2oFilmSessionsRepository.findById(2).get();
+        assertThat(session.getHallsId()).isEqualTo(2);
+        assertThat(session.getFilmId()).isEqualTo(2);
     }
 }

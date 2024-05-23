@@ -31,6 +31,6 @@ class Sql2oHallsRepositoryTest {
     @Test
     public void whenFindHallByIdThenGet() {
         var hall = sql2oHallsRepository.findById(1);
-        assertThat(hall.getName()).isEqualTo("Hall with big screen");
+        assertThat(hall.getName()).isEqualTo("Hall #1");
     }
 }

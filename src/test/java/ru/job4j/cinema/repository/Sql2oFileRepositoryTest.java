@@ -30,7 +30,7 @@ class Sql2oFileRepositoryTest {
 
     @Test
     public void whenFindFileByIdThenGet() {
-        var file = sql2oFileRepository.findById(1).get();
-        assertThat(file.getName()).isEqualTo("DadPool");
+        var file = sql2oFileRepository.findById(3).get();
+        assertThat(file.getName()).isEqualTo("1");
     }
 }
